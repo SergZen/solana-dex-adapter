@@ -1,0 +1,26 @@
+{
+  "name": "solana-dex-adapter",
+  "version": "0.0.1",
+  "main": "./src/index.ts",
+  "repository": "https://github.com/SergZen/solana-dex-adapter",
+  "author": "SergZen <SergZenMail@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "npx tsx ./src/index.ts"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.31.1",
+    "@meteora-ag/dlmm": "^1.5.2",
+    "@raydium-io/raydium-sdk-v2": "^0.1.135-alpha",
+    "@solana/web3.js": "^1.98.0",
+    "bn.js": "^5.2.2",
+    "bs58": "^6.0.0",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "@types/bn.js": "^5.1.6",
+    "tsx": "^4.19.4",
+    "typescript": "^5.0.0"
+  }
+}
