@@ -11,6 +11,12 @@ cd solana-dex-adapter
 ```bash
 yarn install
 ```
+
+3. Add your solana private key to SECRET_KEY in .env.
+
+
+4. Add SOL and USDC in devnet for your address https://spl-token-faucet.com/?token-name=USDC
+
 ## Usage
 Run the main script:
 ```bash
