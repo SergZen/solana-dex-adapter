@@ -33,12 +33,6 @@ export abstract class BaseAdapter implements IDEXAdapter {
     if(tx instanceof Transaction) {
       const blockHash = await this.connection.getLatestBlockhash()
 
-      const messageV0 = new TransactionMessage({
-        payerKey: payer.publicKey,
-        recentBlockhash: blockHash.blockhash,
-        instructions: tx.instructions, // Include the instructions from the transaction
-      }).compileToV0Message() // Use [] if no address lookup tables are used
-
       if (needCompute) {
         tx.add(
           ComputeBudgetProgram.setComputeUnitPrice({
@@ -46,6 +40,12 @@ export abstract class BaseAdapter implements IDEXAdapter {
           })
         )
       }
+
+      const messageV0 = new TransactionMessage({
+        payerKey: payer.publicKey,
+        recentBlockhash: blockHash.blockhash,
+        instructions: tx.instructions, // Include the instructions from the transaction
+      }).compileToV0Message() // Use [] if no address lookup tables are used
 
       // Wrap into VersionedTransaction
       vTx = new VersionedTransaction(messageV0)
